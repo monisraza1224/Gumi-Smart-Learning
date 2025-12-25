@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Upload - Gumi Smart Learning</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .upload-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .upload-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .upload-header h1 {
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2C3E50;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .file-input-container {
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-input-container:hover {
+            background: #e8f4fc;
+        }
+        
+        .file-input-container i {
+            font-size: 48px;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .upload-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-button:hover {
+            background: linear-gradient(135deg, #45a049, #3d8b40);
+            transform: translateY(-2px);
+        }
+        
+        .upload-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .status-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <div class="upload-header">
+            <h1><i class="fas fa-upload"></i> Module PDF Upload</h1>
+            <p>Upload PDF files for 7-Day AI Prompting Course</p>
+        </div>
+        
+        <form id="uploadForm">
+            <div class="form-group">
+                <label class="form-label">Module</label>
+                <select id="moduleId" class="form-select" required>
+                    <option value="">Select Module Day</option>
+                    <option value="day-1">Day 1: Basic Prompting Techniques</option>
+                    <option value="day-2">Day 2: Goal-Based Prompting</option>
+                    <option value="day-3">Day 3: Concept Understanding</option>
+                    <option value="day-4">Day 4: Problem Solving</option>
+                    <option value="day-5">Day 5: Feedback & Improvement</option>
+                    <option value="day-6">Day 6: Advanced Prompting</option>
+                    <option value="day-7">Day 7: Comprehensive Practice</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Title</label>
+                <input type="text" id="title" class="form-input" required placeholder="Enter module title">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea id="description" class="form-textarea" placeholder="Enter module description"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Duration</label>
+                <input type="text" id="duration" class="form-input" value="1.5 hours" placeholder="e.g., 1.5 hours">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">PDF File</label>
+                <div class="file-input-container" onclick="document.getElementById('pdfFile').click()">
+                    <i class="fas fa-file-pdf"></i>
+                    <p>Click to select PDF file</p>
+                    <p class="file-name" id="fileName">No file selected</p>
+                    <input type="file" id="pdfFile" class="file-input" accept=".pdf" required>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="uploadProgress"></div>
+                </div>
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+            
+            <button type="submit" class="upload-button" id="uploadButton">
+                <i class="fas fa-upload"></i> Upload Module
+            </button>
+        </form>
+        
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Main Site
+        </a>
+    </div>
+    
+    <script>
+        // File selection display
+        document.getElementById('pdfFile').addEventListener('change', function(e) {
+            const fileName = document.getElementById('fileName');
+            if (this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+                fileName.style.color = '#2C3E50';
+                fileName.style.fontWeight = '600';
+            } else {
+                fileName.textContent = 'No file selected';
+                fileName.style.color = '#666';
+                fileName.style.fontWeight = 'normal';
+            }
+        });
+        
+        // Auto-fill title based on module selection
+        document.getElementById('moduleId').addEventListener('change', function() {
+            const moduleTitles = {
+                'day-1': 'Day 1: Basic Prompting Techniques',
+                'day-2': 'Day 2: Goal-Based Prompting',
+                'day-3': 'Day 3: Concept Understanding',
+                'day-4': 'Day 4: Problem Solving',
+                'day-5': 'Day 5: Feedback & Improvement',
+                'day-6': 'Day 6: Advanced Prompting',
+                'day-7': 'Day 7: Comprehensive Practice'
+            };
+            
+            if (this.value && moduleTitles[this.value]) {
+                document.getElementById('title').value = moduleTitles[this.value];
+            }
+        });
+        
+        // Form submission
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const moduleId = document.getElementById('moduleId').value;
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const duration = document.getElementById('duration').value;
+            const pdfFile = document.getElementById('pdfFile').files[0];
+            
+            if (!pdfFile) {
+                showMessage('Please select a PDF file', 'error');
+                return;
+            }
+            
+            if (pdfFile.size > 50 * 1024 * 1024) { // 50MB limit
+                showMessage('File size exceeds 50MB limit', 'error');
+                return;
+            }
+            
+            if (pdfFile.type !== 'application/pdf') {
+                showMessage('Only PDF files are allowed', 'error');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('moduleId', moduleId);
+            formData.append('title', title);
+            formData.append('description', description);
+            formData.append('duration', duration);
+            formData.append('pdfFile', pdfFile);
+            
+            const uploadButton = document.getElementById('uploadButton');
+            const uploadProgress = document.getElementById('uploadProgress');
+            
+            uploadButton.disabled = true;
+            uploadButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+            
+            try {
+                const xhr = new XMLHttpRequest();
+                
+                xhr.upload.addEventListener('progress', function(e) {
+                    if (e.lengthComputable) {
+                        const percentComplete = (e.loaded / e.total) * 100;
+                        uploadProgress.style.width = percentComplete + '%';
+                    }
+                });
+                
+                xhr.addEventListener('load', function() {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        
+                        if (response.success) {
+                            showMessage(`✅ Module uploaded successfully! Download link: <a href="${response.module.pdf_path}" target="_blank">${response.module.title}</a>`, 'success');
+                            resetForm();
+                        } else {
+                            showMessage(`❌ Upload failed: ${response.error}`, 'error');
+                        }
+                    } catch (error) {
+                        showMessage('❌ Error parsing server response', 'error');
+                    }
+                    
+                    uploadButton.disabled = false;
+                    uploadButton.innerHTML = '<i class="fas fa-upload"></i> Upload Module';
+                    uploadProgress.style.width = '0%';
+                });
+                
+                xhr.addEventListener('error', function() {
+                    showMessage('❌ Network error. Please try again.', 'error');
+                    uploadButton.disabled = false;
+                    uploadButton.innerHTML = '<i class="fas fa-upload"></i> Upload Module';
+                    uploadProgress.style.width = '0%';
+                });
+                
+                xhr.open('POST', '/api/modules/upload');
+                xhr.send(formData);
+                
+            } catch (error) {
+                showMessage(`❌ Upload error: ${error.message}`, 'error');
+                uploadButton.disabled = false;
+                uploadButton.innerHTML = '<i class="fas fa-upload"></i> Upload Module';
+                uploadProgress.style.width = '0%';
+            }
+        });
+        
+        function showMessage(message, type) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.innerHTML = message;
+            statusMessage.className = `status-message status-${type}`;
+            statusMessage.style.display = 'block';
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        function resetForm() {
+            document.getElementById('uploadForm').reset();
+            document.getElementById('fileName').textContent = 'No file selected';
+            document.getElementById('fileName').style.color = '#666';
+            document.getElementById('fileName').style.fontWeight = 'normal';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Modules Load</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .module { border: 1px solid #ccc; padding: 15px; margin: 10px; border-radius: 5px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Test Modules Load</h1>
+    <button onclick="loadModules()">Test Load Modules</button>
+    <div id="result"></div>
+    <div id="modules"></div>
+    
+    <script>
+        async function loadModules() {
+            const resultDiv = document.getElementById('result');
+            const modulesDiv = document.getElementById('modules');
+            
+            resultDiv.innerHTML = '<p>Testing /api/modules endpoint...</p>';
+            
+            try {
+                const response = await fetch('/api/modules');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                resultDiv.innerHTML = `<p class="success">✅ Success! Loaded ${data.modules?.length || 0} modules</p>`;
+                
+                if (data.modules && data.modules.length > 0) {
+                    modulesDiv.innerHTML = '<h2>Modules:</h2>' + 
+                        data.modules.map(module => `
+                            <div class="module">
+                                <h3>${module.title}</h3>
+                                <p>${module.description}</p>
+                                <p><strong>Duration:</strong> ${module.duration}</p>
+                                ${module.pdf_path ? `<p><a href="${module.pdf_path}" target="_blank">Download PDF</a></p>` : ''}
+                            </div>
+                        `).join('');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

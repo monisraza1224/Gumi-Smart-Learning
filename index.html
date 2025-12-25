@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gumi Smart Learning Support Service</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <h1>Gumi Smart Learning</h1>
+                    <p>Support Service</p>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active"><i class="fas fa-home"></i> <span data-i18n="home">Home</span></a>
+                    <a href="#subjects" class="nav-link"><i class="fas fa-book"></i> <span data-i18n="subjects">Subjects</span></a>
+                    <a href="#course" class="nav-link"><i class="fas fa-robot"></i> <span data-i18n="course">AI Course</span></a>
+                    <a href="#modules" class="nav-link"><i class="fas fa-layer-group"></i> <span data-i18n="modules">Course Modules</span></a>
+                    <a href="#quiz" class="nav-link"><i class="fas fa-file-alt"></i> <span data-i18n="quiz">Quiz Generator</span></a>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="language-switcher">
+                        <button class="lang-btn active" onclick="changeLanguage('ko')">한국어</button>
+                        <button class="lang-btn" onclick="changeLanguage('en')">English</button>
+                    </div>
+                    <button class="nav-toggle" id="navToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">Premium Education Platform</div>
+                    <h1 data-i18n="hero-title">대치동 수준의 학습을<br>구미에서 경험하세요</h1>
+                    <p data-i18n="hero-subtitle">6개 주요 과목 전문 콘텐츠와 AI 기반 맞춤형 학습 시스템</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1,200+</div>
+                            <div class="stat-label" data-i18n="active-students">Active Students</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6,500+</div>
+                            <div class="stat-label" data-i18n="questions">Questions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label" data-i18n="satisfaction">Satisfaction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label" data-i18n="ai-support">AI Support</div>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" onclick="switchSection('#subjects')">
+                            <i class="fas fa-play-circle"></i> <span data-i18n="start-learning">Start Learning</span>
+                        </button>
+                        <button class="btn btn-secondary btn-large" onclick="switchSection('#modules')">
+                            <i class="fas fa-graduation-cap"></i> <span data-i18n="ai-course">Start AI Course</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-brain"></i>
+                        <h3 data-i18n="smart-ai">Smart AI Tutor</h3>
+                        <p data-i18n="smart-ai-desc">Real OpenAI GPT-4 Powered</p>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-chart-line"></i>
+                        <h3 data-i18n="progress">Track Progress</h3>
+                        <p data-i18n="progress-desc">Real-time learning analytics</p>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3 data-i18n="expert">Expert Content</h3>
+                        <p data-i18n="expert-desc">Daechi-dong level materials</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="section-container">
+                <h2 class="section-title" data-i18n="features">Platform Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #3498DB, #2C3E50);">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 data-i18n="feature-1-title">6 Major Subjects</h3>
+                        <p data-i18n="feature-1-desc">Korean, Math, English, Social Studies, Science, Korean History</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #2ECC71, #27AE60);">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 data-i18n="feature-3-title">AI Learning Assistant</h3>
+                        <p data-i18n="feature-3-desc">Powered by OpenAI GPT-4 with real subject expertise</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #9B59B6, #8E44AD);">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Korean Test Papers</h3>
+                        <p>Generate professional Korean-style test papers automatically</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #E74C3C, #C0392B);">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Image Problem Solver</h3>
+                        <p>Upload images of problems, AI solves them instantly</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Types -->
+            <div class="section-container bg-light">
+                <h2 class="section-title" data-i18n="student-types">Student Types</h2>
+                <div class="student-types">
+                    <div class="student-card">
+                        <div class="student-header">
+                            <div class="student-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 data-i18n="student-1-title">Advanced Students (Grade 3+)</h3>
+                        </div>
+                        <ul>
+                            <li>OpenAI GPT-4 powered advanced problem solving</li>
+                            <li>Daechi-dong level advanced content</li>
+                            <li>Real-time AI tutoring and feedback</li>
+                            <li>Essay and critical thinking focus</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="switchSection('#quiz')">
+                            <i class="fas fa-file-alt"></i> <span>Generate Advanced Test</span>
+                        </button>
+                    </div>
+                    <div class="student-card">
+                        <div class="student-header">
+                            <div class="student-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 data-i18n="student-2-title">General Students</h3>
+                        </div>
+                        <ul>
+                            <li>AI-powered concept explanations</li>
+                            <li>Step-by-step problem solving</li>
+                            <li>24/7 AI learning assistant</li>
+                            <li>Personalized learning paths</li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="switchSection('#modules')">
+                            <i class="fas fa-graduation-cap"></i> <span>Start AI Course</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Section -->
+        <section id="subjects" class="page-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">6 Major Subjects</h2>
+                    <p class="section-subtitle">Download textbooks and learning materials for all subjects</p>
+                </div>
+                
+                <!-- Subject Books Download Section -->
+                <div class="books-download-section">
+                    <h3>Download Subject Textbooks</h3>
+                    <div class="books-grid" id="booksGrid">
+                        <!-- Books will be loaded dynamically -->
+                    </div>
+                </div>
+                
+                <div class="subject-info">
+                    <div class="info-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Comprehensive Curriculum</h3>
+                        <p>All 6 major subjects covered with detailed textbooks</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI-Powered Learning</h3>
+                        <p>Get AI explanations for any topic from these subjects</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Downloadable Materials</h3>
+                        <p>All textbooks available as PDF for offline study</p>
+                    </div>
+                </div>
+                
+                <div class="ai-chat-help">
+                    <h3>Need Help with a Subject?</h3>
+                    <p>Ask our AI Tutor for help with any subject or topic</p>
+                    <button class="btn btn-success" onclick="openChatbot()">
+                        <i class="fas fa-robot"></i> Ask AI Tutor for Help
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Prompting Course Section -->
+        <section id="course" class="page-section">
+            <div class="course-hero">
+                <div class="course-hero-content">
+                    <h1>7-Day AI Prompting Mastery Course</h1>
+                    <p>Learn to communicate effectively with AI and maximize your learning efficiency</p>
+                    <div class="course-stats">
+                        <div class="course-stat">
+                            <div class="course-stat-number">7</div>
+                            <div class="course-stat-label">Days</div>
+                        </div>
+                        <div class="course-stat">
+                            <div class="course-stat-number">21+</div>
+                            <div class="course-stat-label">Examples</div>
+                        </div>
+                        <div class="course-stat">
+                            <div class="course-stat-number">6</div>
+                            <div class="course-stat-label">Subjects</div>
+                        </div>
+                        <div class="course-stat">
+                            <div class="course-stat-number">100%</div>
+                            <div class="course-stat-label">Practical</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-container">
+                <div class="course-overview">
+                    <h2 class="section-title">Course Overview</h2>
+                    <p class="section-subtitle">This comprehensive course will teach you step-by-step how to effectively communicate with AI to improve learning outcomes.</p>
+                </div>
+                
+                <div class="course-cta">
+                    <h2>Start Your AI Learning Journey Today!</h2>
+                    <p>Access all 7 modules and become an AI prompting expert</p>
+                    <button class="btn btn-primary btn-large" onclick="switchSection('#modules')">
+                        <i class="fas fa-play"></i> Access Course Modules
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="page-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">7-Day AI Prompting Course Modules</h2>
+                    <p class="section-subtitle">Complete all modules to master AI communication for learning</p>
+                </div>
+                
+                <!-- Modules Grid - Will be populated by JavaScript -->
+                <div class="modules-grid" id="modulesGrid">
+                    <!-- Modules will be loaded here dynamically -->
+                </div>
+                
+                <!-- Course Progress -->
+                <div class="course-completion" style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; margin: 40px auto; text-align: center;">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px;">Course Completion</h3>
+                    <div class="progress-container" style="margin: 25px 0;">
+                        <div class="progress-bar" style="height: 12px; background: #e9ecef; border-radius: 6px; overflow: hidden; margin-bottom: 10px;">
+                            <div class="progress-fill" id="courseProgress" style="height: 100%; background: linear-gradient(90deg, #4CAF50, #45a049); border-radius: 6px; width: 0%;"></div>
+                        </div>
+                        <div class="progress-text" style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #666;">
+                            <span id="completedModules">0</span> of 7 modules completed
+                        </div>
+                    </div>
+                    <p style="color: #666;">Complete all modules to earn your AI Prompting Master Certificate</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Generator Section - UPDATED FOR DIRECT DOWNLOAD -->
+        <section id="quiz" class="page-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="quiz-title">Korean Style Test Paper Generator</h2>
+                    <p class="section-subtitle" data-i18n="quiz-subtitle">Create professional Korean-style test papers with AI</p>
+                </div>
+                
+                <div class="quiz-generator">
+                    <div class="generator-controls">
+                        <div class="control-group">
+                            <label data-i18n="select-subject">Select Subject:</label>
+                            <div class="subject-cards">
+                                <div class="subject-card" data-subject="korean" onclick="selectQuizSubject(this)">
+                                    <i class="fas fa-book"></i>
+                                    <span data-i18n="korean">Korean</span>
+                                </div>
+                                <div class="subject-card" data-subject="math" onclick="selectQuizSubject(this)">
+                                    <i class="fas fa-calculator"></i>
+                                    <span data-i18n="math">Math</span>
+                                </div>
+                                <div class="subject-card" data-subject="english" onclick="selectQuizSubject(this)">
+                                    <i class="fas fa-language"></i>
+                                    <span data-i18n="english">English</span>
+                                </div>
+                                <div class="subject-card" data-subject="social" onclick="selectQuizSubject(this)">
+                                    <i class="fas fa-globe-asia"></i>
+                                    <span data-i18n="social-studies">Social Studies</span>
+                                </div>
+                                <div class="subject-card" data-subject="science" onclick="selectQuizSubject(this)">
+                                    <i class="fas fa-flask"></i>
+                                    <span data-i18n="science">Science</span>
+                                </div>
+                                <div class="subject-card" data-subject="history" onclick="selectQuizSubject(this)">
+                                    <i class="fas fa-landmark"></i>
+                                    <span data-i18n="korean-history">Korean History</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label data-i18n="paper-details">Paper Details:</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="paperTitle" class="form-input" 
+                                           placeholder="Mid-Term Examination" 
+                                           value="Mid-Term Examination">
+                                </div>
+                                <div class="form-group">
+                                    <select id="questionCount" class="form-select">
+                                        <option value="10">10 Questions</option>
+                                        <option value="20" selected>20 Questions</option>
+                                        <option value="30">30 Questions</option>
+                                        <option value="40">40 Questions</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label data-i18n="question-types">Question Types:</label>
+                            <div class="question-types">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="multipleChoice" checked>
+                                    <span data-i18n="multiple-choice">Multiple Choice</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="shortAnswer" checked>
+                                    <span data-i18n="short-answer">Short Answer</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="essay" checked>
+                                    <span data-i18n="essay">Essay</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label data-i18n="difficulty-level">Difficulty Level:</label>
+                            <div class="difficulty-levels">
+                                <label class="radio-label">
+                                    <input type="radio" name="difficulty" value="easy" checked>
+                                    <span data-i18n="easy">Easy</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="difficulty" value="medium">
+                                    <span data-i18n="medium">Medium</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="difficulty" value="hard">
+                                    <span data-i18n="hard">Hard</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large" onclick="generateTestPaper()" data-i18n="generate-paper">
+                            <i class="fas fa-magic"></i> Generate Test Paper with AI
+                        </button>
+                    </div>
+                    
+                    <!-- Simple success message area -->
+                    <div id="generationMessage" style="display: none; margin-top: 20px; padding: 15px; background: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; color: #155724;">
+                        <i class="fas fa-check-circle"></i> <span id="messageText">Test paper generated successfully!</span>
+                    </div>
+                    
+                    <div class="quiz-preview" id="quizPreview" style="display: none;">
+                        <div class="preview-header">
+                            <h3 data-i18n="paper-preview">Paper Preview</h3>
+                            <div class="preview-actions">
+                                <button class="btn btn-secondary" onclick="downloadQuizPDF()" data-i18n="download-pdf">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </button>
+                                <button class="btn btn-secondary" onclick="printPaper()" data-i18n="print">
+                                    <i class="fas fa-print"></i> Print
+                                </button>
+                            </div>
+                        </div>
+                        <div class="paper-content" id="paperContent">
+                            <!-- Paper preview will appear here if needed -->
+                            <p class="info-message">
+                                <i class="fas fa-info-circle"></i> 
+                                Test paper has been downloaded. You can also use the buttons above to download again or print.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-widget">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-robot"></i>
+            <span class="notification-badge" id="chatNotification" style="display: none;">1</span>
+        </button>
+        
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h3>AI Learning Tutor</h3>
+                        <p class="chatbot-status">Connected to OpenAI</p>
+                    </div>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="chatbot-btn" onclick="minimizeChatbot()">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="chatbot-btn" onclick="closeChatbot()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chatbot-messages" id="chatMessages">
+                <!-- Messages will appear here -->
+            </div>
+            
+            <div class="chatbot-input">
+                <div class="input-container">
+                    <input type="text" id="chatInput" placeholder="Ask any learning question...">
+                    <button class="send-btn" onclick="sendChatMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="quick-questions">
+                    <button class="quick-btn" onclick="askQuickQuestion('math')">Math Help</button>
+                    <button class="quick-btn" onclick="askQuickQuestion('english')">English Help</button>
+                    <button class="quick-btn" onclick="askQuickQuestion('science')">Science Help</button>
+                    <button class="quick-btn" onclick="askQuickQuestion('korean')">Korean Help</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">🎓</div>
+                        <h3>Gumi Smart Learning</h3>
+                        <p>Smart Learning Platform for Educational Development</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home" onclick="switchSection('#home')">Home</a>
+                    <a href="#subjects" onclick="switchSection('#subjects')">Subjects</a>
+                    <a href="#modules" onclick="switchSection('#modules')">AI Course</a>
+                    <a href="#quiz" onclick="switchSection('#quiz')">Quiz Generator</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Gumi, Gyeongsangbuk-do, South Korea</p>
+                    <p><i class="fas fa-phone"></i> 054-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> support@gumi-smart.kr</p>
+                    <p><i class="fas fa-robot"></i> 24/7 AI Tutor Available</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Gumi Smart Learning Support Service. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p id="loadingText">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿{
+  "subjects": [
+    {
+      "id": "korean",
+      "name": "Korean Language",
+      "name_ko": "국어",
+      "description": "Korean language and literature",
+      "icon": "fas fa-book",
+      "color": "#E74C3C"
+    },
+    {
+      "id": "math",
+      "name": "Mathematics",
+      "name_ko": "수학",
+      "description": "Algebra, geometry, calculus",
+      "icon": "fas fa-calculator",
+      "color": "#2ECC71"
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "name_ko": "영어",
+      "description": "English language and grammar",
+      "icon": "fas fa-language",
+      "color": "#3498DB"
+    },
+    {
+      "id": "social",
+      "name": "Social Studies",
+      "name_ko": "사회",
+      "description": "History, geography, civics",
+      "icon": "fas fa-globe-asia",
+      "color": "#9B59B6"
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "name_ko": "과학",
+      "description": "Physics, chemistry, biology",
+      "icon": "fas fa-flask",
+      "color": "#1ABC9C"
+    },
+    {
+      "id": "history",
+      "name": "Korean History",
+      "name_ko": "한국사",
+      "description": "Korean history and culture",
+      "icon": "fas fa-landmark",
+      "color": "#E67E22"
+    }
+  ]
+}

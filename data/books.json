@@ -1,0 +1,52 @@
+﻿{
+  "subjects": [
+    {
+      "id": "korean",
+      "name": "Korean Language",
+      "name_ko": "국어",
+      "book_url": "/content/books/korean/korean-textbook.pdf",
+      "description": "Comprehensive Korean language textbook covering grammar, literature, and writing",
+      "description_ko": "문법, 문학, 작문을 포함한 종합 국어 교과서"
+    },
+    {
+      "id": "math",
+      "name": "Mathematics",
+      "name_ko": "수학",
+      "book_url": "/content/books/math/mathematics-textbook.pdf",
+      "description": "Complete mathematics textbook for all levels including algebra, geometry, and calculus",
+      "description_ko": "대수, 기하, 미적분을 포함한 수학 교과서"
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "name_ko": "영어",
+      "book_url": "/content/books/english/english-textbook.pdf",
+      "description": "English language learning textbook with grammar, vocabulary, and conversation",
+      "description_ko": "문법, 어휘, 회화를 포함한 영어 학습 교과서"
+    },
+    {
+      "id": "social-studies",
+      "name": "Social Studies",
+      "name_ko": "사회",
+      "book_url": "/content/books/social-studies/social-studies-textbook.pdf",
+      "description": "Social studies textbook covering history, geography, and civics",
+      "description_ko": "역사, 지리, 시민을 포함한 사회 교과서"
+    },
+    {
+      "id": "science",
+      "name": "Science",
+      "name_ko": "과학",
+      "book_url": "/content/books/science/science-textbook.pdf",
+      "description": "Science textbook covering physics, chemistry, biology, and earth science",
+      "description_ko": "물리, 화학, 생물, 지구과학을 포함한 과학 교과서"
+    },
+    {
+      "id": "korean-history",
+      "name": "Korean History",
+      "name_ko": "한국사",
+      "book_url": "/content/books/korean-history/korean-history-textbook.pdf",
+      "description": "Complete Korean history textbook from ancient to modern times",
+      "description_ko": "고대부터 현대까지의 한국사 교과서"
+    }
+  ]
+}

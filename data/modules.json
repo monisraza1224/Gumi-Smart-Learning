@@ -1,0 +1,95 @@
+{
+  "modules": [
+    {
+      "id": "day-1",
+      "title": "Day 1: Basic Prompting Techniques",
+      "title_ko": "1일차: 기본 프롬프팅 기술",
+      "description": "Learn how to write clear and specific prompts for AI",
+      "description_ko": "AI를 위한 명확하고 구체적인 프롬프트 작성법 배우기",
+      "duration": "1.5 hours",
+      "order": 1,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-1/module.pdf",
+      "topics": ["Clear questioning", "Specific instructions", "Context setting"],
+      "learning_objectives": ["Write clear questions", "Structure prompts effectively"]
+    },
+    {
+      "id": "day-2",
+      "title": "Day 2: Goal-Based Prompting",
+      "title_ko": "2일차: 목표 기반 프롬프팅",
+      "description": "Set clear learning objectives and get structured responses",
+      "description_ko": "명확한 학습 목표 설정 및 구조화된 응답 받기",
+      "duration": "2 hours",
+      "order": 2,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-2/module.pdf",
+      "topics": ["Goal setting", "Structured responses", "Progress tracking"],
+      "learning_objectives": ["Set SMART goals", "Get step-by-step instructions"]
+    },
+    {
+      "id": "day-3",
+      "title": "Day 3: Concept Understanding",
+      "title_ko": "3일차: 개념 이해",
+      "description": "Simplify complex concepts using AI explanations",
+      "description_ko": "AI 설명을 사용하여 복잡한 개념 단순화",
+      "duration": "2 hours",
+      "order": 3,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-3/module.pdf",
+      "topics": ["Simplification", "Analogies", "Step-by-step explanations"],
+      "learning_objectives": ["Request simplified explanations", "Use analogies effectively"]
+    },
+    {
+      "id": "day-4",
+      "title": "Day 4: Problem Solving",
+      "title_ko": "4일차: 문제 해결",
+      "description": "Solve complex problems with AI assistance",
+      "description_ko": "AI 도움으로 복잡한 문제 해결",
+      "duration": "2.5 hours",
+      "order": 4,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-4/module.pdf",
+      "topics": ["Step-by-step solutions", "Alternative approaches", "Error analysis"],
+      "learning_objectives": ["Get detailed solutions", "Explore different methods"]
+    },
+    {
+      "id": "day-5",
+      "title": "Day 5: Feedback & Improvement",
+      "title_ko": "5일차: 피드백 및 개선",
+      "description": "Get and use feedback effectively for learning",
+      "description_ko": "학습을 위한 효과적인 피드백 수령 및 활용",
+      "duration": "1.5 hours",
+      "order": 5,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-5/module.pdf",
+      "topics": ["Constructive feedback", "Self-assessment", "Improvement plans"],
+      "learning_objectives": ["Request useful feedback", "Create improvement plans"]
+    },
+    {
+      "id": "day-6",
+      "title": "Day 6: Advanced Prompting",
+      "title_ko": "6일차: 고급 프롬프팅",
+      "description": "Master advanced AI prompting techniques",
+      "description_ko": "고급 AI 프롬프팅 기술 마스터하기",
+      "duration": "2 hours",
+      "order": 6,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-6/module.pdf",
+      "topics": ["Chain prompting", "Role assignment", "Creative problem solving"],
+      "learning_objectives": ["Use chain prompting", "Assign specific roles to AI"]
+    },
+    {
+      "id": "day-7",
+      "title": "Day 7: Comprehensive Practice",
+      "title_ko": "7일차: 종합 실습",
+      "description": "Apply all techniques in real-world scenarios",
+      "description_ko": "실제 시나리오에 모든 기술 적용하기",
+      "duration": "3 hours",
+      "order": 7,
+      "pdf_file": "module.pdf",
+      "pdf_path": "/content/modules/day-7/module.pdf",
+      "topics": ["Real applications", "Integration", "Continuous learning"],
+      "learning_objectives": ["Apply techniques practically", "Integrate multiple skills"]
+    }
+  ]
+}
